@@ -1,0 +1,35 @@
+use database demodatabase;
+
+CREATE TABLE hospital_table (patient_id INTEGER,
+                             patient_name VARCHAR, 
+                             billing_address VARCHAR,
+                             diagnosis VARCHAR, 
+                             treatment VARCHAR,
+                             cost NUMBER(10,2));
+describe table hospital_table;-------it shows metadata-----details about table--specification
+                             
+INSERT INTO hospital_table 
+        (patient_ID, patient_name, billing_address, diagnosis, treatment, cost) 
+    VALUES
+        (1, 'Mark Knopfler', '1982 Telegraph Road', 'Industrial Disease', 
+            'a week of peace and quiet', 2000.00),
+        (2, 'Guido van Rossum', '37 Florida St.', 'python bite', 'anti-venom', 
+            70000.00)
+        ;
+
+select * from hospital_table;
+
+---view syntax
+create view view_name as select col1,col2,col3.... from table_name ;
+
+
+CREATE VIEW doctor_view AS
+    SELECT patient_ID, patient_name, diagnosis, treatment FROM hospital_table;
+
+    select * from doctor_view;
+
+CREATE VIEW accountant_view AS
+    SELECT patient_ID, patient_name, billing_address, cost FROM hospital_table;
+
+    
+    select * from accountant_view;
