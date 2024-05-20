@@ -1,0 +1,126 @@
+=> BASIC ---HOW TO CREATE TABLE AND HOW TO INSERT VALUES
+
+create warehouse demowarehouse;
+create database demodatabase;
+
+show warehouses ; 
+show databases;
+
+use warehouse demowarehouse;
+use database demodatabase;
+
+drop database demodatabase; ------to delete a database
+
+create table agent(
+agent_code varchar(6),
+agent_name varchar(40),
+working_area varchar(35),
+commission number(10,2),  --- 10 denotes total no we want with two decimal  and 2 denotes howmany decimal we want 
+phone_no varchar(15),
+country varchar(25)
+);
+
+describe table agent;-------to see the structure of table
+
+insert into agent values (123,'anand jha','analytics',230.43,'9828049659','india');
+
+insert into agent values (123,'ankit','analytics',230.43,' ','india');
+
+select * from agent;
+
+insert into agent(agent_code,agent_name,country) values (125,'bhaya','india');
+
+
+
+USE DATABASE "DEMODATABASE";
+
+ 
+
+
+
+INSERT INTO AGENT VALUES ('A007', 'Ramasundar', 'Bangalore', '0.15', '077-25814763', ''),
+ ('A003', 'Alex ', 'London', '0.13', '075-12458969', ''),
+('A008', 'Alford', 'New York', '0.12', '044-25874365', ''),
+ ('A011', 'Ravi Kumar', 'Bangalore', '0.15', '077-45625874', ''),
+ ('A010', 'Santakumar', 'Chennai', '0.14', '007-22388644', ''),
+('A012', 'Lucida', 'San Jose', '0.12', '044-52981425', ''),
+ ('A005', 'Anderson', 'Brisban', '0.13', '045-21447739', ''),
+  ('A001', 'Subbarao', 'Bangalore', '0.14', '077-12346674', ''),
+ ('A002', 'Mukesh', 'Mumbai', '0.11', '029-12358964', ''),
+ ('A006', 'McDen', 'London', '0.15', '078-22255588', ''),
+ ('A004', 'Ivan', 'Torento', '0.15', '008-22544166', ''),
+ ('A009', 'Benjamin', 'Hampshair', '0.11', '008-22536178', '');
+
+
+select * from agent;
+
+=>HOW TO CREATE VIEW
+
+use database demodatabase;
+
+CREATE TABLE hospital_table (patient_id INTEGER,
+                             patient_name VARCHAR, 
+                             billing_address VARCHAR,
+                             diagnosis VARCHAR, 
+                             treatment VARCHAR,
+                             cost NUMBER(10,2));
+describe table hospital_table;-------it shows metadata-----details about table--specification
+                             
+INSERT INTO hospital_table 
+        (patient_ID, patient_name, billing_address, diagnosis, treatment, cost) 
+    VALUES
+        (1, 'Mark Knopfler', '1982 Telegraph Road', 'Industrial Disease', 
+            'a week of peace and quiet', 2000.00),
+        (2, 'Guido van Rossum', '37 Florida St.', 'python bite', 'anti-venom', 
+            70000.00)
+        ;
+
+select * from hospital_table;
+
+---view syntax
+create view view_name as select col1,col2,col3.... from table_name ;
+
+
+CREATE VIEW doctor_view AS
+    SELECT patient_ID, patient_name, diagnosis, treatment FROM hospital_table;
+
+    select * from doctor_view;
+
+CREATE VIEW accountant_view AS
+    SELECT patient_ID, patient_name, billing_address, cost FROM hospital_table;
+
+    
+    select * from accountant_view;
+
+    => HOW TO LOAD DATA 
+    
+use database demodatabase;
+
+
+CREATE or replace table NJ_CONSUMER_COMPLAINTS
+
+(    DATE_RECEIVED STRING,
+     PRODUCT_NAME VARCHAR2(50),
+     SUB_PRODUCT VARCHAR2(100),
+     ISSUE VARCHAR2(100),
+     SUB_ISSUE VARCHAR2(100),
+     CONSUMER_COMPLAINT_NARRATIVE string,
+     Company_Public_Response STRING,
+     Company VARCHAR(100),
+     State_Name CHAR(4),
+     Zip_Code string,
+     Tags VARCHAR(40),
+     Consumer_Consent_Provided CHAR(25),
+     Submitted_via STRING,
+     Date_Sent_to_Company STRING,
+     Company_Response_to_Consumer VARCHAR(40),
+     Timely_Response CHAR(4),
+     CONSUMER_DISPUTED CHAR(4),
+     COMPLAINT_ID NUMBER(12,0) NOT NULL PRIMARY KEY
+);
+
+select * from  NJ_CONSUMER_COMPLAINTS;
+
+
+
+
