@@ -92,7 +92,7 @@ CREATE VIEW accountant_view AS
     
     select * from accountant_view;
 
-    => HOW TO LOAD DATA 
+    3=> HOW TO LOAD DATA 
     
 use database demodatabase;
 
@@ -122,7 +122,7 @@ CREATE or replace table NJ_CONSUMER_COMPLAINTS
 select * from  NJ_CONSUMER_COMPLAINTS;
 
 
-3====>> DATE AND TIME FUNCTION IN SNOWFLAKE
+4====>> DATE AND TIME FUNCTION IN SNOWFLAKE
 
  
  
@@ -260,7 +260,7 @@ SELECT TO_CHAR(TO_DATE('1993-08-17'),'DY') AS DATE_DAY;
 
 SELECT TO_CHAR(TO_DATE('1993-08-17'),'DY-DD-MM-YYYY') AS DATE_DAY;
 
-4====>>>>most commonly used command
+5====>>>>most commonly used command
 ---distint
 ---limit
 ---% and underscore(_)
@@ -409,7 +409,7 @@ VALUES
 
 select * from aj_sales where order_date between '2021-01-07' and '2021-02-01' ;---- between command wont work untill or unless its(order_date) datatype is 'date'data type
 
-5=====>CASE STATEMENT
+6=====>CASE STATEMENT
 
  
 
